@@ -1,3 +1,5 @@
+-- SQL Queries to create database and tables
+
 CREATE DATABASE jwttable;
 
 CREATE TABLE users(

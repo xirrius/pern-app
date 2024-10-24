@@ -1,3 +1,5 @@
+// Connecting our postgres database with express server
+
 const Pool = require('pg').Pool
 
 const pool = new Pool({
