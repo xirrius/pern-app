@@ -21,7 +21,7 @@ module.exports = function (req, res, next) {
   try {
     const verify = jwt.verify(token, process.env.jwtSecret); // yha humne token ko pass kiya. aur server ki secret key pass ki. to verify
     // in case token is valid, jwt.verify will return payload
-    //it is going to give verify = (user:{id: userid})
+    //it is going to give verify = {user:{id: userid}}
     // if token is invalid, it will throw error and we move to catch block
 
     req.user = verify.user; // req object m payload store kr liya 
@@ -31,9 +31,9 @@ module.exports = function (req, res, next) {
     //   id: userid
     // }}
 
-
     next();
+    
   } catch (err) {
-    res.status(401).json({ msg: "Token is not valid" });
+    res.status(403).json({ msg: "Token is not valid" });
   }
 };

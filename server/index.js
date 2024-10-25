@@ -16,6 +16,8 @@ app.use("/authentication", authRouter); // authentication pr aane wali saari req
 
 app.use("/dashboard", require("./routes/dashboard")); // another way to define a router
 
+app.use("/posts", require("./routes/posts"));
+
 app.listen(5000, () => {
   console.log(`Server is starting on port 5000`);
 });

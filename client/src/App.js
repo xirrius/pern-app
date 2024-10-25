@@ -15,7 +15,8 @@ import { toast } from "react-toastify";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
-
+import Posts from "./components/Posts"
+  
 toast.configure();
 
 
@@ -49,7 +50,7 @@ function App() {
   useEffect(() => {
     checkAuthenticated(); // ye kaam sirf component ke initial render pr chalega
   }, []);
-
+ 
   // custom function isAuthenticated ko set krne ke liye jo hum children component m pass kr skte h as props. 
   // setAuth(true) se hmara state variable isAuthenticated true ho jayega, kisi bhi child component ke andr se
   const setAuth = (boolean) => {
@@ -95,6 +96,17 @@ function App() {
               render={(props) =>
                 isAuthenticated ? (
                   <Dashboard {...props} setAuth={setAuth} />
+                ) : (
+                  <Redirect to="/login" />
+                )
+              }
+            />
+            <Route
+              exact
+              path="/posts"
+              render={(props) =>
+                isAuthenticated ? (
+                  <Posts {...props} setAuth={setAuth} />
                 ) : (
                   <Redirect to="/login" />
                 )

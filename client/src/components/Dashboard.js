@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { toast } from "react-toastify";
 
 const Dashboard = ({ setAuth }) => {
@@ -16,7 +17,7 @@ const Dashboard = ({ setAuth }) => {
     } catch (err) {
       console.error(err.message);
     }
-  };
+  }; 
 
   const logout = async e => {
     e.preventDefault();
@@ -37,9 +38,10 @@ const Dashboard = ({ setAuth }) => {
     <div>
       <h1 className="mt-5">Dashboard</h1>
       <h2>Welcome {name}</h2>
-      <button onClick={e => logout(e)} className="btn btn-primary">
+      <button onClick={(e) => logout(e)} className="btn btn-primary">
         Logout
       </button>
+      <Link to="/posts" className="btn btn-primary">Posts</Link>
     </div>
   );
 };

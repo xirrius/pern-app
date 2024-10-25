@@ -86,10 +86,11 @@ router.post("/login", validInfo, async (req, res) => {
     res.status(500).send("Server error");
   }
 });
-
+ 
 // just a simple route
 // agr authroized h toh true return hoga
 // unauthrozed h toh request yha kabhi nhi aayegi. it will stop at authorize middleware
+
 router.post("/verify", authorize, (req, res) => {
   try {
     res.json(true);

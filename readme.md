@@ -4,6 +4,10 @@
 1. jwt 
 2. bcrypt
 3. connecting client and server
+4. pagination
+5. searching
+6. sorting
+7. filtering
 
 ### Keep in mind
 Client is running on localhost:3000 and server is running on localhost:5000
